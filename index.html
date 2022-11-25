@@ -94,12 +94,8 @@
                     <button v-on:click="showCheckout()">Show Lessons</button>
                     <div class="cart&checkout_section">
                         <!-- Shopping cart section -->
-                        <div class="shoppingCart">
-                            <div v-if="isHidden1">
-                                <button v-on:click="showCart()">Show cart below</button>
-                            </div>
-                            <div v-else>
-                                <button v-on:click="showCart()">Hide cart below</button>
+                        <div class="shoppingCart"><br>
+                                <p><b>Your shopping cart</b></p>
                                 <div v-for="i in this.cart"  v-if="isCartFilled()" id="cart">
                                     <p>{{i.title}}</p>
                                     <p>{{i.description}}</p>
@@ -110,6 +106,7 @@
                                     <button v-on:click="removeItem(i.id,i.title)">Remove</button>
                                 </div>
                                 <div v-if="!isCartFilled()">
+                                    <br>
                                     Cart is empty
                                 </div>
                             </div>
