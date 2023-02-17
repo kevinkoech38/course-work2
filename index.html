@@ -9,7 +9,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <!-- Javascript-->
-        <script src="lessons.js"></script>
+        
 
     </head>
     <body>
@@ -144,7 +144,7 @@
             let app = new Vue({
                 el:"#app",
                 data:{
-                    lessons : lessons,
+                    lessons : [],
                     cart:[],
                     cartList:[],
                     ascending:true,
@@ -388,6 +388,12 @@
                         }
                     }
                     }
+                    ,created() {
+                // Fetch lessons data from the Mongodb
+                fetch("http://localhost:3300/lessons")
+                    .then(response => response.json())
+                    .then(data => (this.lessons = data));
+            }
             });
         </script>
     </body>
